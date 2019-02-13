@@ -1,0 +1,30 @@
+{
+  "manifest_version": 2,
+  "name": "Online Staken",
+  "description": "Databedrijven zijn er niet voor jou. Daarom moeten we ons verenigen en een tegenmacht vormen om verandering teweeg te brengen.",
+  "version": "1.0.3",
+  "author": "Arco Mul",
+
+  "browser_action": {
+    "default_icon": "style/img/popup_btn_icon.png",
+    "default_popup": "popup.html"
+  },
+
+  "background": {
+    "persistent": true,
+    "scripts": ["/js/background/index.js"]
+  },
+
+  "permissions": [
+    "storage",
+    "webRequest",
+    "webRequestBlocking",
+    "https://*.facebook.com/"
+  ],
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "datavakbond-online-staken-firefox-extension@arcomul.nl"
+    }
+  }
+}

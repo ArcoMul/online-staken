@@ -1,0 +1,112 @@
+<html>
+  <head>
+    <title>Online Staking</title>
+
+    <style>
+      html,
+      body {
+        margin: 0px !important;
+        padding: 0px !important;
+      }
+
+      body {
+        width: 300px;
+        font-size: 14px;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      .online-staken-card {
+        border-radius: 5px;
+        overflow: hidden;
+        margin: -2px 0;
+      }
+
+      .online-staken-card.count-card {
+        font-family: "Source Sans Pro", sans-serif;
+        text-align: center;
+        margin: 0 auto;
+      }
+      .count-card .count-down {
+        width: 100%;
+        background-color: #ededed;
+        padding: 15px 0px;
+      }
+      .count-card .count-down .title {
+        display: inline-block;
+        font-size: 18px;
+        width: 100%;
+      }
+      .count-card .count-down .date {
+        display: inline-block;
+        font-size: 32px;
+        width: 100%;
+      }
+
+      .count-card .counter .count {
+        font-weight: bold;
+        font-size: 72px;
+        display: inline-block;
+        width: 100%;
+        margin-top: 45px;
+      }
+      .count-card .counter .subtitle {
+        font-size: 20px;
+        display: inline-block;
+        width: 100%;
+        margin-bottom: 30px;
+      }
+
+      .button {
+        background-color: #ff4352;
+        color: white;
+        padding: 3px 7px;
+        text-decoration: none;
+        font-size: 20px;
+      }
+
+      .footer {
+        margin-top: 60px;
+      }
+      .footer img {
+        width: calc(100% - 30px);
+        margin: 0 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="online-staken">
+      <div class="online-staken-col count-down-col">
+        <div class="online-staken-card count-card">
+          <div class="count-down" id="not-blocking-text">
+            <strong class="title">Volgende staking...</strong>
+            <strong class="date">1 Maart</strong>
+          </div>
+          <div class="count-down" id="blocking-text">
+            <strong class="date">Geen Facebook vandaag!</strong>
+          </div>
+          <div class="counter">
+            <span class="count" id="stikers-count">-</span>
+            <span class="subtitle" id="not-blocking-count-text"
+              >leden staken mee op 1 Maart</span
+            >
+            <span class="subtitle" id="blocking-count-text"
+              >leden staken met je mee!</span
+            >
+            <a
+              class="button"
+              target="_blank"
+              href="https://datavakbond.nl/?page_id=2437"
+              >Meer informatie</a
+            >
+          </div>
+          <div class="footer">
+            <img
+              src="https://datavakbond.nl/online-staken/assets/striking-people-5.png"
+            />
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="./js/popup/index.js"></script>
+  </body>
+</html>

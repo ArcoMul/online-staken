@@ -1,0 +1,246 @@
+<style>
+  /* Common */
+
+  .online-staken {
+    max-width: 950px;
+    margin: 0 auto;
+  }
+
+  .online-staken-row {
+    clear: both;
+    width: 100%;
+    display: flex;
+  }
+  .online-staken-col {
+    flex: 1;
+  }
+  .online-staken-card {
+    border-radius: 5px;
+    box-shadow: 5px 0 20px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    border: 1px solid #ccc;
+  }
+
+  /* Text */
+
+  .online-staken h1 {
+    font-size: 36px;
+    margin-top: 30px;
+  }
+  .online-staken h2 {
+    font-size: 22px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
+  .online-staken p {
+    font-size: 20px;
+    line-height: 30px;
+  }
+  .online-staken .highlight {
+    background-color: #ff4352;
+    color: white;
+    padding: 0 3px;
+  }
+
+  /* Header */
+
+  .online-staken .header {
+    width: 100%;
+  }
+  .online-staken .header .title-icon {
+    width: 42px;
+    display: inline-block;
+  }
+  .online-staken .header h2 {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 24px;
+    padding-left: 15px;
+  }
+
+  /* Intro */
+
+  .online-staken .intro-col {
+    padding-right: 120px;
+  }
+  .online-staken .intro-col h2 {
+    margin-top: 45px;
+  }
+
+  .online-staken .download-row {
+    margin-top: 50px;
+    align-items: center;
+  }
+  .online-staken .download-row p {
+    color: #9a9a9a;
+    min-width: 180px;
+    margin: 0;
+    margin-bottom: 23px;
+  }
+  .online-staken .download-row .browser-icons-col {
+    background-image: url("/online-staken/assets/browser-icons.png");
+    background-repeat: no-repeat;
+    min-width: 253px;
+    min-height: 99px;
+  }
+  .online-staken .download-row .browser-icons-col a {
+    width: 59px;
+    height: 75px;
+    margin: 0 12px;
+    display: block;
+    float: left;
+  }
+
+  /* Count card */
+
+  .online-staken .count-down-col {
+    margin-right: 60px;
+  }
+  .online-staken-card.count-card {
+    font-family: "Source Sans Pro", sans-serif;
+    text-align: center;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  .count-card .count-down {
+    width: 100%;
+    background-color: #ededed;
+    padding: 10px 30px;
+  }
+  .count-card .count-down .title {
+    display: inline-block;
+    font-size: 18px;
+    width: 100%;
+  }
+  .count-card .count-down .date {
+    display: inline-block;
+    font-size: 32px;
+    width: 100%;
+  }
+
+  .count-card .counter {
+    /* border-bottom: 1px solid #ededed; */
+  }
+  .count-card .counter .count {
+    font-weight: bold;
+    font-size: 72px;
+    display: inline-block;
+    width: 100%;
+    margin-top: 45px;
+  }
+  .count-card .counter .subtitle {
+    font-size: 20px;
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 60px;
+  }
+
+  /* Info section */
+  .online-staken .info-row {
+    margin-top: 120px;
+  }
+  .online-staken .info-row .text-col {
+    padding-left: 30px;
+  }
+  .online-staken .info-row .text-col h2 {
+    font-size: 32px;
+  }
+
+  /* Footer */
+  .online-staken .footer {
+    text-align: center;
+    margin-bottom: -100px;
+    margin-top: 120px;
+  }
+  .online-staken .footer img {
+    width: 60%;
+  }
+</style>
+<div class="online-staken">
+  <div class="header">
+    <img class="title-icon" src="/online-staken/assets/fb-block-icon.svg" />
+    <h2>ONLINE STAKEN</h2>
+  </div>
+
+  <div class="online-staken-row">
+    <div class="online-staken-col intro-col">
+      <h1>1 Maart, staakdag</h1>
+      <p>
+        Databedrijven zijn er niet voor jou. Daarom moeten we ons verenigen en
+        een tegenmacht vormen om verandering teweeg te brengen. Zodat niet zij
+        maar wij de controle hebben over ónze data!
+      </p>
+      <h2>Hoe gaan we dit doen?</h2>
+      <p>
+        Op <span class="highlight">1 Maart</span> gaan we digitaal staken bij
+        Facebook. Installeer de browser-extensie en laat zien dat ook jij een
+        dag staakt bij Facebook.
+      </p>
+      <div class="online-staken-row download-row">
+        <div class="online-staken-col">
+          <p>
+            Download voor:
+          </p>
+        </div>
+        <div class="online-staken-col browser-icons-col">
+          <a
+            target="_blank"
+            href="https://addons.mozilla.org/en-US/firefox/addon/online-staken/"
+          ></a>
+          <a
+            target="_blank"
+            href="https://chrome.google.com/webstore/detail/online-staken/ocdceeokplcjkjmihdkcdhebbkbgaobl"
+          ></a>
+          <a target="_blank" href="#"></a>
+        </div>
+      </div>
+    </div>
+    <div class="online-staken-col count-down-col">
+      <div class="online-staken-card count-card">
+        <div class="count-down">
+          <strong class="title">Volgende staking...</strong>
+          <strong class="date">1 Maart</strong>
+        </div>
+        <div class="counter">
+          <span class="count" id="stikers-count">-</span>
+          <span class="subtitle">leden staken mee op 1 Maart</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="online-staken-row info-row">
+    <div class="online-staken-col">
+      <img src="https://via.placeholder.com/450x500.png" />
+    </div>
+    <div class="online-staken-col text-col">
+      <h2>Hoe werkt het?</h2>
+      <p>
+        De browser extensie zal op 1 maart detecteren of jij Facebook bezoekt en
+        dit blokkeren wanneer dit het geval is. Je komt dan samen met alle
+        andere stakers op de <a href="/?page_id=2508">stakingspagina</a>, waar
+        je kunt zien met hoeveel mensen we die dag aan het staken zijn!
+      </p>
+      <p>
+        Om volledige transparantie te geven over hoe de extensie werkt, hebben
+        we de broncode op Github geplaatst.
+      </p>
+    </div>
+  </div>
+
+  <div class="footer">
+    <img src="/online-staken/assets/striking-people.png" />
+  </div>
+</div>
+
+<script>
+  var COUNT_URL = "https://datavakbond.nl/online-staken/count.php";
+  fetch(COUNT_URL)
+    .then(function(response) {
+      return response.text();
+    })
+    .then(function(text) {
+      document.getElementById("stikers-count").innerHTML = text;
+    })
+    .catch(err => console.error);
+</script>
