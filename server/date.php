@@ -2,6 +2,6 @@
 
 header("Access-Control-Allow-Origin: *");
 
-echo "2019-3-15";
+echo "2019-03-15";
 
 ?>

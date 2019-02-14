@@ -86,23 +86,27 @@ function init() {
     var hash = storage.hash;
     var strikeDate = storage.strikeDate;
 
-    // Date known? Decide to block or not,
-    // otherwise first get the date from the server
+    // Date known? Decide to block or not straight away
     if (strikeDate) {
       setBlockAndStrikeDate(new Date(strikeDate));
-    } else {
-      fetch(DATE_URL)
-        .then(function(response) {
-          return response.text();
-        })
-        .then(function(text) {
-          setBlockAndStrikeDate(new Date(text));
-          browser.storage.sync.set({
-            strikeDate: strikeDate
-          });
-        })
-        .catch(err => console.error);
     }
+
+    // Fetch the latest strike date from the server
+    fetch(DATE_URL)
+      .then(function(response) {
+        return response.text();
+      })
+      .then(function(text) {
+        // Let's not try to do anything with invalid dates
+        if (!moment(text, "YYYY-MM-DD", true).isValid()) {
+          return;
+        }
+        setBlockAndStrikeDate(new Date(text));
+        browser.storage.sync.set({
+          strikeDate: text
+        });
+      })
+      .catch(err => console.error);
 
     if (!hash) {
       hash = generateHash();

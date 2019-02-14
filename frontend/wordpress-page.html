@@ -271,6 +271,11 @@
       return response.text();
     })
     .then(function(text) {
+      // Let's not try to do anything with invalid dates
+      if (!moment(text, "YYYY-MM-DD", true).isValid()) {
+        console.error("online-staken: received invalid date from server");
+        return;
+      }
       Array.from(document.getElementsByClassName("strike-date")).forEach(
         function(elm) {
           elm.innerHTML = moment(text).format("D MMMM");

@@ -38,7 +38,11 @@ function init() {
   Array.from(document.getElementsByClassName("strike-date")).forEach(function(
     elm
   ) {
-    console.log(bg.strikeDate);
+    // Let's not try to do anything with invalid dates
+    if (!moment(bg.strikeDate, "YYYY-MM-DD", true).isValid()) {
+      console.error("received invalid date from server");
+      return;
+    }
     elm.innerHTML = moment(bg.strikeDate).format("D MMMM");
   });
 
