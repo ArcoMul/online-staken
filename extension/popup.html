@@ -79,7 +79,7 @@
         <div class="online-staken-card count-card">
           <div class="count-down" id="not-blocking-text">
             <strong class="title">Volgende staking...</strong>
-            <strong class="date">1 Maart</strong>
+            <strong class="date strike-date">-</strong>
           </div>
           <div class="count-down" id="blocking-text">
             <strong class="date">Geen Facebook vandaag!</strong>
@@ -87,7 +87,7 @@
           <div class="counter">
             <span class="count" id="stikers-count">-</span>
             <span class="subtitle" id="not-blocking-count-text"
-              >leden staken mee op 1 Maart</span
+              >leden staken mee op <span class="strike-date">-</span></span
             >
             <span class="subtitle" id="blocking-count-text"
               >leden staken met je mee!</span
@@ -107,6 +107,8 @@
         </div>
       </div>
     </main>
+    <script src="./js/lib/moment.min.js"></script>
+    <script src="./js/lib/moment.nl.js"></script>
     <script src="./js/popup/index.js"></script>
   </body>
 </html>

@@ -145,6 +145,11 @@
   .online-staken .info-row .text-col h2 {
     font-size: 32px;
   }
+  .online-staken .source-code-image {
+    border: 1px solid #cccc;
+    border-radius: 3px;
+    padding: 15px;
+  }
 
   /* Footer */
   .online-staken .footer {
@@ -164,7 +169,7 @@
 
   <div class="online-staken-row">
     <div class="online-staken-col intro-col">
-      <h1>1 Maart, staakdag</h1>
+      <h1><span class="strike-date">15 Maart</span>, staakdag</h1>
       <p>
         Databedrijven zijn er niet voor jou. Daarom moeten we ons verenigen en
         een tegenmacht vormen om verandering teweeg te brengen. Zodat niet zij
@@ -172,9 +177,10 @@
       </p>
       <h2>Hoe gaan we dit doen?</h2>
       <p>
-        Op <span class="highlight">1 Maart</span> gaan we digitaal staken bij
-        Facebook. Installeer de browser-extensie en laat zien dat ook jij een
-        dag staakt bij Facebook.
+        Op
+        <span class="highlight"><span class="strike-date">15 Maart</span></span>
+        gaan we digitaal staken bij Facebook. Installeer de browser-extensie en
+        laat zien dat ook jij een dag staakt bij Facebook.
       </p>
       <div class="online-staken-row download-row">
         <div class="online-staken-col">
@@ -199,11 +205,15 @@
       <div class="online-staken-card count-card">
         <div class="count-down">
           <strong class="title">Volgende staking...</strong>
-          <strong class="date">1 Maart</strong>
+          <strong class="date"
+            ><span class="strike-date">15 Maart</span></strong
+          >
         </div>
         <div class="counter">
           <span class="count" id="stikers-count">-</span>
-          <span class="subtitle">leden staken mee op 1 Maart</span>
+          <span class="subtitle"
+            >leden staken mee op <span class="strike-date">15 Maart</span></span
+          >
         </div>
       </div>
     </div>
@@ -211,19 +221,27 @@
 
   <div class="online-staken-row info-row">
     <div class="online-staken-col">
-      <img src="https://via.placeholder.com/450x500.png" />
+      <img
+        class="source-code-image"
+        src="/online-staken/assets/source-code.png"
+      />
     </div>
     <div class="online-staken-col text-col">
       <h2>Hoe werkt het?</h2>
       <p>
-        De browser extensie zal op 1 maart detecteren of jij Facebook bezoekt en
-        dit blokkeren wanneer dit het geval is. Je komt dan samen met alle
-        andere stakers op de <a href="/?page_id=2508">stakingspagina</a>, waar
-        je kunt zien met hoeveel mensen we die dag aan het staken zijn!
+        De browser extensie zal op
+        <span class="strike-date">15 maart</span> detecteren of jij Facebook
+        bezoekt en dit blokkeren wanneer dit het geval is. Je komt dan samen met
+        alle andere stakers op de <a href="/?page_id=2508">stakingspagina</a>,
+        waar je kunt zien met hoeveel mensen we die dag aan het staken zijn!
       </p>
       <p>
         Om volledige transparantie te geven over hoe de extensie werkt, hebben
-        we de broncode op Github geplaatst.
+        we
+        <a target="_blank" href="https://github.com/ArcoMul/online-staken"
+          >de broncode op Github</a
+        >
+        geplaatst.
       </p>
     </div>
   </div>
@@ -233,6 +251,9 @@
   </div>
 </div>
 
+<script src="/online-staken/lib/moment.min.js"></script>
+<script src="/online-staken/lib/moment.nl.js"></script>
+
 <script>
   var COUNT_URL = "https://datavakbond.nl/online-staken/count.php";
   fetch(COUNT_URL)
@@ -241,6 +262,20 @@
     })
     .then(function(text) {
       document.getElementById("stikers-count").innerHTML = text;
+    })
+    .catch(err => console.error);
+
+  var DATE_URL = "https://datavakbond.nl/online-staken/date.php";
+  fetch(DATE_URL)
+    .then(function(response) {
+      return response.text();
+    })
+    .then(function(text) {
+      Array.from(document.getElementsByClassName("strike-date")).forEach(
+        function(elm) {
+          elm.innerHTML = moment(text).format("D MMMM");
+        }
+      );
     })
     .catch(err => console.error);
 </script>

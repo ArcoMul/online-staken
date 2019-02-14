@@ -3,17 +3,17 @@ if (!window.browser) {
 }
 
 var PING_URL = "https://datavakbond.nl/online-staken/ping.php";
+var DATE_URL = "https://datavakbond.nl/online-staken/date.php";
 var COUNT_URL = "https://datavakbond.nl/online-staken/count.php";
 var REDIRECT_URL = "https://datavakbond.nl/?page_id=2508";
 
+moment.locale("nl");
+
 // The next strike
-var nextStrike = new Date("2019-3-1");
-var now = new Date();
 
 // Whether to block facebook or not.
-var block =
-  nextStrike < now &&
-  now < new Date(new Date(nextStrike).setDate(nextStrike.getDate() + 1));
+var block = false;
+var strikeDate;
 
 // List of urls to block, gets looped through onBeforeRequest.
 var urls_to_block = ["facebook.com"];
@@ -57,6 +57,14 @@ function onBeforeRequest(req) {
   };
 }
 
+function setBlockAndStrikeDate(_strikeDate) {
+  var now = new Date();
+  strikeDate = _strikeDate;
+  block =
+    strikeDate < now &&
+    now < new Date(new Date(strikeDate).setDate(strikeDate.getDate() + 1));
+}
+
 function generateHash() {
   var chars = "abcdefghijklmnopqrstuvwxyz1234567890";
   var hash = "";
@@ -76,12 +84,33 @@ function init() {
   // Ping the server that this browser is striking
   browser.storage.sync.get(function(storage) {
     var hash = storage.hash;
+    var strikeDate = storage.strikeDate;
+
+    // Date known? Decide to block or not,
+    // otherwise first get the date from the server
+    if (strikeDate) {
+      setBlockAndStrikeDate(new Date(strikeDate));
+    } else {
+      fetch(DATE_URL)
+        .then(function(response) {
+          return response.text();
+        })
+        .then(function(text) {
+          setBlockAndStrikeDate(new Date(text));
+          browser.storage.sync.set({
+            strikeDate: strikeDate
+          });
+        })
+        .catch(err => console.error);
+    }
+
     if (!hash) {
       hash = generateHash();
       browser.storage.sync.set({
         hash: hash
       });
     }
+
     fetch(PING_URL + "?hash=" + hash);
   });
 }

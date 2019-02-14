@@ -12,7 +12,11 @@
 
   "background": {
     "persistent": true,
-    "scripts": ["/js/background/index.js"]
+    "scripts": [
+      "/js/lib/moment.min.js",
+      "/js/lib/moment.nl.js",
+      "/js/background/index.js"
+    ]
   },
 
   "permissions": [

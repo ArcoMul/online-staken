@@ -35,6 +35,13 @@ function init() {
     els.not_blocking_count_text.style.display = "block";
   }
 
+  Array.from(document.getElementsByClassName("strike-date")).forEach(function(
+    elm
+  ) {
+    console.log(bg.strikeDate);
+    elm.innerHTML = moment(bg.strikeDate).format("D MMMM");
+  });
+
   fetch(bg.COUNT_URL)
     .then(function(response) {
       return response.text();
