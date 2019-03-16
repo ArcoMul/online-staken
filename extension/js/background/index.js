@@ -5,7 +5,7 @@ if (!window.browser) {
 var PING_URL = "https://datavakbond.nl/online-staken/ping.php";
 var DATE_URL = "https://datavakbond.nl/online-staken/date.php";
 var COUNT_URL = "https://datavakbond.nl/online-staken/count.php";
-var REDIRECT_URL = browser.extension.getURL("staak-ruimte.html"); // "https://datavakbond.nl/?page_id=2508";
+var REDIRECT_URL = "https://datavakbond.nl/?page_id=2508";
 
 moment.locale("nl");
 
