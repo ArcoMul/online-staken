@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Online Staken",
   "description": "Databedrijven zijn er niet voor jou. Daarom moeten we ons verenigen en een tegenmacht vormen om verandering teweeg te brengen.",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "author": "Arco Mul",
 
   "browser_action": {

@@ -5,7 +5,7 @@ if (!window.browser) {
 var PING_URL = "https://datavakbond.nl/online-staken/ping.php";
 var DATE_URL = "https://datavakbond.nl/online-staken/date.php";
 var COUNT_URL = "https://datavakbond.nl/online-staken/count.php";
-var REDIRECT_URL = "https://datavakbond.nl/?page_id=2508";
+var REDIRECT_URL = browser.extension.getURL("staak-ruimte.html"); // "https://datavakbond.nl/?page_id=2508";
 
 moment.locale("nl");
 
@@ -34,9 +34,9 @@ function onBeforeRequest(req) {
   // true if a request its url matches a string found in urls_to_block.
   var cancel_req = false;
 
-  // if (!block) {
-  //   return;
-  // }
+  if (!block) {
+    return;
+  }
 
   // Loop through urls_to_block and set cancel_req to true if the current
   // request its url matches a string found in urls_to_block.

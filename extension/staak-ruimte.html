@@ -1,0 +1,94 @@
+<style>
+  .online-staken {
+    text-align: center;
+  }
+
+  #visualize-strike {
+    width: 100%;
+    min-height: 400px;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  #visualize-strike #strike-group {
+    display: inline-block;
+    flex: 2;
+    position: relative;
+    min-height: 400px;
+  }
+
+  #visualize-strike #strike-group .person {
+    position: absolute;
+  }
+
+  #visualize-strike #building {
+    display: inline-block;
+    flex: 1;
+  }
+
+  #visualize-strike #building img {
+    width: 100%;
+  }
+
+  .online-staken h2 {
+    margin-bottom: 15px;
+    font-weight: 800;
+  }
+
+  h1 {
+    margin: 60px 0 24px;
+  }
+
+  .h1 {
+    font-weight: 600;
+    font-size: 48px;
+    color: rgb(68, 63, 63);
+    font-weight: bold;
+  }
+
+  p {
+    font-size: 28px;
+    color: #443f3f;
+  }
+
+  p.subtext {
+    margin-bottom: 45px;
+  }
+
+  .online-staken .button {
+    background-color: #ff4352;
+    color: white;
+    padding: 3px 11px 5px;
+    text-decoration: none;
+    font-size: 20px;
+  }
+</style>
+
+<div class="online-staken">
+  <h1 class="h1">
+    Geen Facebook vandaag!
+  </h1>
+
+  <div id="visualize-strike">
+    <div id="strike-group"></div>
+  </div>
+
+  <h2 id="strikers-count" class="h1">
+    -
+  </h2>
+
+  <p class="subtext">
+    Mensen staken met je mee!
+  </p>
+
+  <p>
+    <a
+      target="_blank"
+      class="button"
+      href="https://datavakbond.nl/?page_id=2437"
+      >Meer informatie</a
+    >
+  </p>
+</div>
+
+<script src="js/staak-ruimte.js"></script>
